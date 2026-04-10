@@ -38,25 +38,19 @@
   .fb{margin-top:18px;padding:14px;border-radius:12px;font-weight:600;font-size:.92rem;text-align:center;display:none}
   .fb.show{display:block;animation:fi .3s}.fb.fb-g{background:rgba(0,230,118,.15);color:#00e676;border:1px solid rgba(0,230,118,.3)}.fb.fb-r{background:rgba(255,82,82,.15);color:#ff5252;border:1px solid rgba(255,82,82,.3)}
   @keyframes fi{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
-
-  /* AI NOTE */
   .ai-note{margin-top:12px;padding:14px 16px;border-radius:12px;background:rgba(255,215,0,.08);border:1px solid rgba(255,215,0,.25);display:none;text-align:left;font-size:.84rem;line-height:1.55;color:#ffd54f}
   .ai-note.show{display:block;animation:fi .4s}
   .ai-note .ai-hdr{font-weight:700;font-size:.8rem;margin-bottom:6px;display:flex;align-items:center;gap:6px}
-  .ai-note .ai-hdr .ai-icon{font-size:1.1rem}
   .ai-note .ai-body{color:#ffe082;font-weight:400}
   .ai-note .ai-alt{color:#ffab40;font-weight:700}
   .ai-note .ai-conf{display:inline-block;margin-top:6px;padding:2px 8px;border-radius:6px;font-size:.7rem;font-weight:700}
   .ai-note .ai-conf.high{background:rgba(255,82,82,.2);color:#ff8a80}
   .ai-note .ai-conf.med{background:rgba(255,171,64,.2);color:#ffcc80}
   .ai-note .ai-conf.low{background:rgba(255,235,59,.15);color:#fff176}
-
-  .aa-bar-wrap{margin-top:12px;display:none;text-align:center}
-  .aa-bar-wrap.show{display:block}
+  .aa-bar-wrap{margin-top:12px;display:none;text-align:center}.aa-bar-wrap.show{display:block}
   .aa-bar-bg{width:100%;height:5px;background:rgba(255,255,255,.1);border-radius:10px;overflow:hidden;margin-top:6px}
   .aa-bar-fill{height:100%;border-radius:10px;transition:width linear}
-  .aa-bar-fill.aa-ok{background:linear-gradient(90deg,#00e676,#69f0ae)}
-  .aa-bar-fill.aa-ko{background:linear-gradient(90deg,#ff5252,#ff8a80)}
+  .aa-bar-fill.aa-ok{background:linear-gradient(90deg,#00e676,#69f0ae)}.aa-bar-fill.aa-ko{background:linear-gradient(90deg,#ff5252,#ff8a80)}
   .aa-label{font-size:.72rem;color:#888}
   .brow{display:flex;justify-content:center;gap:10px;margin-top:22px;flex-wrap:wrap}
   .btn{padding:11px 24px;border-radius:12px;border:none;font-family:'Inter',sans-serif;font-weight:600;font-size:.88rem;cursor:pointer;transition:.25s}
@@ -80,8 +74,7 @@
   .src-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:4px}
   .src-tag{padding:5px 12px;border-radius:8px;border:1.5px solid rgba(255,255,255,.15);background:transparent;color:#aaa;font-family:'Inter',sans-serif;font-weight:600;font-size:.72rem;cursor:pointer;transition:.2s}
   .src-tag.on{border-color:#ffab40;background:rgba(255,171,64,.15);color:#ffab40}.src-tag:hover{border-color:rgba(255,171,64,.5)}
-  .aa-cfg{margin-top:4px;margin-bottom:10px;padding:10px 14px;background:rgba(64,196,255,.06);border:1px solid rgba(64,196,255,.15);border-radius:10px;display:none}
-  .aa-cfg.show{display:block}
+  .aa-cfg{margin-top:4px;margin-bottom:10px;padding:10px 14px;background:rgba(64,196,255,.06);border:1px solid rgba(64,196,255,.15);border-radius:10px;display:none}.aa-cfg.show{display:block}
   .aa-cfg .cfg-row{margin-bottom:6px}
   .aa-speed-labels{display:flex;justify-content:space-between;font-size:.68rem;color:#666;margin-top:-6px;margin-bottom:8px}
   .rvw{display:flex;flex-direction:column;gap:10px;width:100%;margin-top:18px}
@@ -98,8 +91,6 @@
 </head>
 <body>
 <div class="app" id="app">
-
-<!-- ============ START ============ -->
 <div id="startScreen" class="scr">
   <div class="emo">🎯</div>
   <h1 style="font-size:2rem;font-weight:800;background:linear-gradient(90deg,#00d2ff,#3a7bd5,#00d2ff);background-size:200%;-webkit-background-clip:text;-webkit-text-fill-color:transparent">Salesforce Data 360 Consultant</h1>
@@ -107,96 +98,41 @@
   <div class="db-stats" id="dbStats"></div>
   <div class="cfg">
     <h3>⚙️ Configura il tuo Quiz</h3>
-    <div class="cfg-row" style="flex-direction:column;align-items:flex-start">
-      <label>📁 Filtra per Set:</label>
-      <div class="src-tags" id="srcTags"></div>
-    </div>
-    <div class="cfg-row">
-      <label>🔀 Ordine:</label>
-      <div class="tgl">
-        <button class="tgl-b on" data-m="random" onclick="setMode('random',this)">Random</button>
-        <button class="tgl-b" data-m="seq" onclick="setMode('seq',this)">Sequenziale</button>
-      </div>
-    </div>
+    <div class="cfg-row" style="flex-direction:column;align-items:flex-start"><label>📁 Filtra per Set:</label><div class="src-tags" id="srcTags"></div></div>
+    <div class="cfg-row"><label>🔀 Ordine:</label><div class="tgl"><button class="tgl-b on" data-m="random" onclick="setMode('random',this)">Random</button><button class="tgl-b" data-m="seq" onclick="setMode('seq',this)">Sequenziale</button></div></div>
     <div class="chk-row"><input type="checkbox" id="chkShuffle" checked><label for="chkShuffle">🔄 Mescola anche le risposte</label></div>
     <div class="chk-row"><input type="checkbox" id="chkWrong"><label for="chkWrong">❌ Solo domande sbagliate (ripasso)</label></div>
     <div class="chk-row"><input type="checkbox" id="chkAuto" onchange="toggleAaCfg()"><label for="chkAuto">⏩ Auto-avanzamento</label></div>
-    <div class="aa-cfg" id="aaCfg">
-      <div class="cfg-row">
-        <label style="min-width:auto;font-size:.8rem">⏱️ Pausa:</label>
-        <input type="range" id="aaSlider" min="1" max="6" value="2" step="0.5" oninput="document.getElementById('aaVal').textContent=this.value+'s'">
-        <span class="rv" id="aaVal" style="font-size:.9rem">2s</span>
-      </div>
-      <div class="aa-speed-labels"><span>Veloce (1s)</span><span>Lento (6s)</span></div>
-    </div>
-    <div class="cfg-row">
-      <label>📝 Numero domande:</label>
-      <input type="range" id="qSlider" min="5" max="65" value="65" oninput="updateSlider()">
-      <span class="rv" id="qSliderVal">65</span>
-    </div>
-    <div style="text-align:center;margin-bottom:8px">
-      <button class="tgl-b" onclick="setSliderPreset(10)" style="font-size:.7rem;padding:4px 10px">10</button>
-      <button class="tgl-b" onclick="setSliderPreset(20)" style="font-size:.7rem;padding:4px 10px">20</button>
-      <button class="tgl-b" onclick="setSliderPreset(30)" style="font-size:.7rem;padding:4px 10px">30</button>
-      <button class="tgl-b" onclick="setSliderPreset(0)" style="font-size:.7rem;padding:4px 10px">Tutte</button>
-    </div>
+    <div class="aa-cfg" id="aaCfg"><div class="cfg-row"><label style="min-width:auto;font-size:.8rem">⏱️ Pausa:</label><input type="range" id="aaSlider" min="1" max="6" value="2" step="0.5" oninput="document.getElementById('aaVal').textContent=this.value+'s'"><span class="rv" id="aaVal" style="font-size:.9rem">2s</span></div><div class="aa-speed-labels"><span>1s</span><span>6s</span></div></div>
+    <div class="cfg-row"><label>📝 Numero domande:</label><input type="range" id="qSlider" min="5" max="65" value="65" oninput="updateSlider()"><span class="rv" id="qSliderVal">65</span></div>
+    <div style="text-align:center;margin-bottom:8px"><button class="tgl-b" onclick="setSliderPreset(10)" style="font-size:.7rem;padding:4px 10px">10</button><button class="tgl-b" onclick="setSliderPreset(20)" style="font-size:.7rem;padding:4px 10px">20</button><button class="tgl-b" onclick="setSliderPreset(30)" style="font-size:.7rem;padding:4px 10px">30</button><button class="tgl-b" onclick="setSliderPreset(0)" style="font-size:.7rem;padding:4px 10px">Tutte</button></div>
   </div>
   <button class="btn btn-p" onclick="startQuiz()" style="margin-top:10px;padding:14px 40px;font-size:1rem">🚀 Inizia Quiz</button>
   <button class="btn btn-s" onclick="resetWrong()" style="font-size:.75rem;padding:8px 16px;margin-top:4px">🗑️ Reset errori (<span id="wrongCountStart">0</span>)</button>
 </div>
-
-<!-- ============ QUIZ ============ -->
 <div id="quizScreen" style="display:none">
   <div class="hdr"><h1>Data 360 Consultant</h1><p id="modeLabel"></p></div>
-  <div class="stats">
-    <div class="st st-g"><div class="n" id="sC">0</div><div class="l">Corrette</div></div>
-    <div class="st st-r"><div class="n" id="sW">0</div><div class="l">Errate</div></div>
-    <div class="st st-y"><div class="n" id="sR">0</div><div class="l">Rimanenti</div></div>
-    <div class="st st-b"><div class="n" id="sP">0%</div><div class="l">Precisione</div></div>
-  </div>
+  <div class="stats"><div class="st st-g"><div class="n" id="sC">0</div><div class="l">Corrette</div></div><div class="st st-r"><div class="n" id="sW">0</div><div class="l">Errate</div></div><div class="st st-y"><div class="n" id="sR">0</div><div class="l">Rimanenti</div></div><div class="st st-b"><div class="n" id="sP">0%</div><div class="l">Precisione</div></div></div>
   <div class="pbar-w"><div class="pbar-bg"><div class="pbar-f" id="pBar" style="width:0%"></div></div></div>
   <div class="card">
-    <div class="q-badge">
-      <span class="q-num" id="qNum"></span>
-      <span class="q-src" id="qSrc"></span>
-      <span class="q-orig" id="qOrig"></span>
-    </div>
+    <div class="q-badge"><span class="q-num" id="qNum"></span><span class="q-src" id="qSrc"></span><span class="q-orig" id="qOrig"></span></div>
     <div class="q-txt" id="qTxt"></div>
     <ul class="opts" id="optList"></ul>
     <div class="fb" id="fb"></div>
-    <div class="ai-note" id="aiNote"><div class="ai-hdr"><span class="ai-icon">🤖</span> AI Analysis Note</div><div class="ai-body" id="aiBody"></div></div>
-    <div class="aa-bar-wrap" id="aaBarWrap">
-      <span class="aa-label" id="aaLabel"></span>
-      <div class="aa-bar-bg"><div class="aa-bar-fill" id="aaBarFill"></div></div>
-    </div>
-    <div class="brow" id="browBtns">
-      <button class="btn btn-p" id="nxtBtn" onclick="nextQ()" disabled>Prossima ➜</button>
-      <button class="btn btn-s" onclick="endQuiz()">🏁 Termina</button>
-    </div>
+    <div class="ai-note" id="aiNote"><div class="ai-hdr"><span>🤖</span> AI Analysis Note</div><div class="ai-body" id="aiBody"></div></div>
+    <div class="aa-bar-wrap" id="aaBarWrap"><span class="aa-label" id="aaLabel"></span><div class="aa-bar-bg"><div class="aa-bar-fill" id="aaBarFill"></div></div></div>
+    <div class="brow"><button class="btn btn-p" id="nxtBtn" onclick="nextQ()" disabled>Prossima ➜</button><button class="btn btn-s" onclick="endQuiz()">🏁 Termina</button></div>
   </div>
 </div>
-
-<!-- ============ END ============ -->
 <div id="endScreen" style="display:none" class="scr">
-  <div class="emo">🏆</div>
-  <h2>Quiz Completato!</h2>
-  <div class="fs" id="fScore"></div>
-  <p id="fMsg"></p>
-  <div class="stats" id="fStats"></div>
-  <div class="brow">
-    <button class="btn btn-p" onclick="location.reload()">🔄 Ricomincia</button>
-    <button class="btn btn-s" onclick="showReview()">📋 Rivedi Risposte</button>
-  </div>
+  <div class="emo">🏆</div><h2>Quiz Completato!</h2><div class="fs" id="fScore"></div><p id="fMsg"></p><div class="stats" id="fStats"></div>
+  <div class="brow"><button class="btn btn-p" onclick="location.reload()">🔄 Ricomincia</button><button class="btn btn-s" onclick="showReview()">📋 Rivedi Risposte</button></div>
   <div class="rvw" id="rvwList" style="display:none"></div>
 </div>
 </div>
-
 <script>
-// ================================================================
-// QUESTION BANK
-// aiNote: shown AFTER answering — only on flagged questions
-// ================================================================
 const BANK=[
+// ===================== SET 1 (65 domande) =====================
 {id:1,src:"Set1",text:"Northern Trail Outfitters has ingested customer profile data and related email engagement data from two separate marketing systems. Both systems use the same customer identifier.\n\nWhich feature should a Data 360 Consultant implement to ensure that engagement records are accurately associated with the correct source profile and avoid misinterpretation of the related engagement data?",options:["Identity Resolution Reconciliation Rules","Fully Qualified Keys","Profile Unification Rules","Identity Resolution Match Rules"],correct:[1]},
 {id:2,src:"Set1",text:"A Data 360 Consultant has been asked to help a customer implement Data 360 to improve their customer experience. They have identified four potential use cases.\n\nWhich scenario represents the most appropriate initial use case based on Salesforce implementation best practices?",options:["Consolidating three systems (Sales, Service, and Marketing Cloud) to provide a \"Single View of the Customer\" for high-tier support agents","Implementing a complex, sub-second web personalization engine using 15 disparate third-party data streams","Redefining the global identity resolution rules for 1 billion records across 12 global regions simultaneously without a specific departmental pilot","Moving 20 years of legacy transaction data into Data 360 to reduce storage costs in their primary CRM org with varying schemas"],correct:[0]},
 {id:3,src:"Set1",text:"A Data 360 Consultant is building a segment to announce a new product launch for customers who have previously purchased black pants.\n\nHow should the consultant place the attributes for product color and product type from the Order Product object to meet this criteria?",options:["Place the attribute for product color in one container and the attribute for product type in another container.","Place the attributes for product color and product type as direct attributes.","Place the attributes for product color and product type in a single container.","Place an attribute for the \"black pants\" calculated insight to dynamically apply."],correct:[2]},
@@ -214,7 +150,7 @@ const BANK=[
 {id:15,src:"Set1",text:"A Data 360 Consultant is preparing to implement Data 360.\n\nWhich ethic should the consultant adhere to regarding customer data?",options:["Collect and use all of the data to create more personalized experiences.","Give senior leaders in the firm access to customer data for audit purposes.","Carefully consider asking for sensitive data such as age, gender, and ethnicity.","Map sensitive data to the same data model object for ease of deletion."],correct:[2]},
 {id:16,src:"Set1",text:"A global ecommerce company uses Salesforce Data 360 to unify customer profiles across multiple systems. The business wants to securely leverage unified customer data across Snowflake.\n\nRequirements:\n• Customer data from Snowflake must be read-only.\n• Updates must be available in near real time.\n• Minimize operational complexity and data duplication.\n\nWhich approach should the consultant recommend?",options:["Schedule nightly exports of Data 360 data to cloud storage and load it into Snowflake.","Use Data 360 Data Sharing to share unified customer data directly to Snowflake.","Expose Data 360 data through REST APIs and ingest it into Snowflake using streaming ingestion.","Replicate Data 360 data into Salesforce standard objects and sync to Snowflake using ETL tools."],correct:[1]},
 {id:17,src:"Set1",text:"A user has built a segment in Data 360 and is creating an activation. When selecting related attributes, they cannot find a specific set of attributes they know to be related to the individual.\n\nWhich statement explains why these attributes are not available?",options:["The segment is not segmenting on profile data.","Activations can only include 1-to-1 attributes.","The desired attributes reside on different related paths.","The attributes are being used in another activation."],correct:[2]},
-{id:18,src:"Set1",text:"A global beverage company (data provider) and a sports media network (data consumer) are collaborating in a Data 360 clean room using the segment overlap use case template.\n\nWhich requirement must be met to allow the results to be filtered by demographics like \"Region\" or \"Age Group\"?",options:["Configure a many-to-many relationship between the two search index DMOs.","The Region and Age Group fields must be set as foreign keys in both DMOs.","Both parties must map their data to a shared calculated insight before joining.","The data provider must include these fields as segmentation attributes within the use case template configuration."],correct:[3],aiNote:{alt:"C",confidence:"med",text:"In Clean Room, la risposta selezionata è D (data provider includes fields as segmentation attributes). Tuttavia, la documentazione Salesforce su Data Cloud Clean Rooms indica che per filtrare i risultati del segment overlap per attributi demografici, entrambe le parti (provider E consumer) potrebbero dover mappare i campi condivisi. La risposta C (shared calculated insight) è meno probabile ma non esclusa del tutto. La D resta la scelta più solida perché nel template di segment overlap è il data provider a configurare i filtri aggiuntivi. Set1 ha 90% in 'Data Enhancements, Sharing, and Analysis' → questa sezione contiene ~1 errore."}},
+{id:18,src:"Set1",text:"A global beverage company (data provider) and a sports media network (data consumer) are collaborating in a Data 360 clean room using the segment overlap use case template.\n\nWhich requirement must be met to allow the results to be filtered by demographics like \"Region\" or \"Age Group\"?",options:["Configure a many-to-many relationship between the two search index DMOs.","The Region and Age Group fields must be set as foreign keys in both DMOs.","Both parties must map their data to a shared calculated insight before joining.","The data provider must include these fields as segmentation attributes within the use case template configuration."],correct:[3],aiNote:{alt:"C",confidence:"med",text:"Set1 ha 90% in 'Data Enhancements' → ~1 errore. Nel Clean Room segment overlap, il data provider configura i filtri nel template. La D resta la più solida, ma C non è esclusa."}},
 {id:19,src:"Set1",text:"A solution architect needs to create a segment of \"High Value Customers\" — anyone qualifying for the existing Platinum Loyalty segment OR anyone who has spent more than US$5,000.\n\nWhat is the most efficient way to build this?",options:["Use a nested segment for \"Platinum Loyalty\" and add a separate container for the minimum spend with an OR operator.","Build a calculated insight that joins both conditions and use that as the only filter.","Create a waterfall segment, prioritizing \"Platinum Loyalty\" first and \"High Spender\" second.","Create two separate segments and join them in a Tableau dashboard for activation."],correct:[0]},
 {id:20,src:"Set1",text:"Which statement is true related to batch ingestions from Salesforce CRM?",options:["The CRM Connector performs an incremental refresh when 600,000+ deletion records are detected.","The CRM Connector's synchronization times can be customized to up to 15-minute intervals.","When a column is added or removed, the CRM Connector performs a full refresh.","CRM data cannot be manually refreshed and must wait for the next scheduled synchronization."],correct:[2]},
 {id:21,src:"Set1",text:"A customer has two Data 360 orgs. A new configuration for an Amazon S3 data stream and its mappings has been tested in one org.\n\nWhat is recommended to package and promote this configuration to the second org?",options:["Use the Salesforce CRM Connector.","Use the Metadata API.","Create a data kit.","Package as an AppExchange application."],correct:[2]},
@@ -233,7 +169,7 @@ const BANK=[
 {id:34,src:"Set1",text:"A consultant is setting up a zero-copy data federation connection with Snowflake.\n\nWhat is the first step in Data 360?",options:["Establish a connection in Data 360 Setup using the specific provider's credentials.","Map the external data directly to the Unified Individual DMO.","Run an identity resolution matching rule.","Create a data stream using the Bulk API category."],correct:[0]},
 {id:35,src:"Set1",text:"Northern Trail Outfitters uploads new customer data to S3 daily. A calculated insight shows total spend per customer in the last 30 days.\n\nIn which sequence should each process run?",options:["Identity Resolution > Refresh Data Stream > Calculated Insight","Calculated Insight > Refresh Data Stream > Identity Resolution","Refresh Data Stream > Identity Resolution > Calculated Insight","Refresh Data Stream > Calculated Insight > Identity Resolution"],correct:[2]},
 {id:36,src:"Set1",text:"What is copied from the production org to a Data 360 sandbox during a standard refresh?",options:["Every single row of historical engagement data from the last 10 years","All customer credit card information and sensitive personal passwords","Only the metadata, such as DMO definitions and mappings","A direct and real-time connection to the production data lake for live querying"],correct:[2]},
-{id:37,src:"Set1",text:"A consultant is configuring an activation for a Unified Individual segment sent to Loyalty Cloud. They need the Loyalty Program Tier from a separate Loyalty Program Member DMO.\n\nWhich feature should they use?",options:["Activation membership to select the Loyalty Program Member DMO and its associated fields","Data stream mappings to re-map the Loyalty Program Tier as a secondary key","Calculated insights to join the Loyalty Program Tier to the Unified Individual","Contact point priority to rank the Loyalty Program Tier above the standard Individual ID"],correct:[0],aiNote:{alt:"C",confidence:"low",text:"La risposta A (Activation membership / Related Attributes) è corretta: durante la configurazione dell'activation, si possono aggiungere attributi da DMO correlati non usati nel segmento. In Data Cloud l'activation permette di selezionare 'Related Attributes' da DMO collegati. Tuttavia, il termine 'Activation membership' non è terminologia standard Salesforce — la feature ufficiale si chiama 'Related Attributes' nell'activation setup. La logica della risposta è comunque giusta. Set1 ha 83% in 'Data Activations' → questa sezione contiene 1-2 errori."}},
+{id:37,src:"Set1",text:"A consultant is configuring an activation for a Unified Individual segment sent to Loyalty Cloud. They need the Loyalty Program Tier from a separate Loyalty Program Member DMO.\n\nWhich feature should they use?",options:["Activation membership to select the Loyalty Program Member DMO and its associated fields","Data stream mappings to re-map the Loyalty Program Tier as a secondary key","Calculated insights to join the Loyalty Program Tier to the Unified Individual","Contact point priority to rank the Loyalty Program Tier above the standard Individual ID"],correct:[0],aiNote:{alt:"C",confidence:"low",text:"La logica di A è giusta (related attributes in activation). Il termine 'Activation membership' non è terminologia ufficiale Salesforce — la feature si chiama 'Related Attributes'. Set1 83% in Activations."}},
 {id:38,src:"Set1",text:"A consultant needs to build a model in Einstein Studio to predict the time-to-close of an opportunity from CRM.\n\nBased on the supported model types, which statement is true?",options:["Use a Multiclass Classification model to bucket the time-to-close into stages.","Use a Multiclass Classification model because the outcome is text data.","Use a Binary Classification model to determine if it's long or short.","Use a Regression model because the target outcome is a numeric measure."],correct:[3]},
 {id:39,src:"Set1",text:"NTO wants a segment where each transaction generates a unique record. If a customer makes three purchases, three distinct entries should appear.\n\nWhich configuration should the consultant use?",options:["Segment on the Sales Order DMO","Segment on the Unified Individual DMO","Segment on the Individual DMO","Segment on a calculated insight based on Sales Orders"],correct:[0]},
 {id:40,src:"Set1",text:"A consultant observes that the volume of source profiles processed in the most recent Identity Resolution batch is less than the total volume.\n\nWhat is the most likely reason profiles are skipped?",options:["A profile is only processed if a pre-processing step confirms a change since the last run.","A profile is skipped if the Unification Score doesn't meet the minimum threshold.","A profile is only sent if the data stream is running at maximum frequency.","A profile is excluded if it fails the Data Quality Score check."],correct:[0]},
@@ -241,8 +177,8 @@ const BANK=[
 {id:42,src:"Set1",text:"A consultant created a calculated insight visible when 'Segmenting On' Individuals but not Unified Individual.\n\nWhat is the reason?",options:["The calculated insight is missing a relationship to the Unified Individual DMO.","The data space for the Unified Individual is different than the Individual DMO.","The consultant doesn't have the correct permissions.","Calculated insights can't be used for the Unified Individual DMO."],correct:[0]},
 {id:43,src:"Set1",text:"During source system inventory, a consultant identifies business-specific fields with no corresponding field in standard DMOs.\n\nFollowing best practices, what should the consultant do?",options:["Extend the relevant standard DMOs by adding custom fields.","Create a new custom DMO for every business-specific field.","Map the business-specific fields to the \"Other\" category.","Ignore the business-specific fields and map only standard fields."],correct:[0]},
 {id:44,src:"Set1",text:"A client wants to split a CRM custom object containing hotel points and airline points into two separate records.\n\nWhat should a consultant recommend?",options:["Create a junction object in Salesforce CRM and modify the ingestion strategy.","Use batch transforms to create a second data lake object.","Clone the data source object.","Create a data kit from the DLO and deploy it to the same org."],correct:[1]},
-{id:45,src:"Set1",text:"What are the available options for segmentation criteria in Data 360?",options:["Only direct attributes and calculated insights","Only direct attributes and related attributes","Direct attributes, related attributes, calculated insights, and streaming insights","Direct attributes, related attributes, and calculated insights"],correct:[3]},
-{id:46,src:"Set1",text:"A customer wants to track Average Time To Close for Service Cloud cases with flexible, near real-time reporting across Sales, Service, Marketing, and Commerce Clouds.\n\nWhich solution meets this need?",options:["Data Model Object (DMO) Formula Fields","Service Cloud Reports","Calculated Insights","Semantic Model Metrics"],correct:[2],aiNote:{alt:"D (Semantic Model Metrics)",confidence:"high",text:"La risposta selezionata è C (Calculated Insights), ma potrebbe essere D (Semantic Model Metrics). Ecco perché:\n\n1. La domanda chiede 'near real-time' + 'different teams' + 'across relevant dimensions' → questo descrive esattamente il Semantic Model/Semantic Layer introdotto con Tableau Next\n2. Calculated Insights sono batch-processed (Q51 stessa conferma: 'data reflects the state of the last batch'), quindi NON sono 'near real-time'\n3. Semantic Model Metrics permettono query multidimensionali dinamiche per team diversi\n4. Set1 ha 90% in 'Data Enhancements, Sharing, and Analysis' → c'è ~1 errore in questa sezione\n\n⚡ Questa è la candidata più forte ad essere l'errore della sezione 'Enhancements'."}},
+{id:45,src:"Set1",text:"What are the available options for segmentation criteria in Data 360?",options:["Only direct attributes and calculated insights","Only direct attributes and related attributes","Direct attributes, related attributes, calculated insights, and streaming insights","Direct attributes, related attributes, and calculated insights"],correct:[3],aiNote:{alt:"C (include streaming insights)",confidence:"high",text:"Set1 seleziona D (Direct, Related, Calculated Insights). Tuttavia Set2 Q18 ha la stessa domanda e seleziona B che include anche Streaming Insights. La documentazione Salesforce più recente conferma che streaming insights SONO disponibili come criteri di segmentazione. Set2 potrebbe avere la risposta più aggiornata qui.\n\n⚡ Nota conflitto: Set1=D vs Set2=B(include streaming). Considera C come possibile risposta corretta."}},
+{id:46,src:"Set1",text:"A customer wants to track Average Time To Close for Service Cloud cases with flexible, near real-time reporting across Sales, Service, Marketing, and Commerce Clouds.\n\nWhich solution meets this need?",options:["Data Model Object (DMO) Formula Fields","Service Cloud Reports","Calculated Insights","Semantic Model Metrics"],correct:[2],aiNote:{alt:"D (Semantic Model Metrics)",confidence:"high",text:"La domanda chiede 'near real-time' + 'multidimensional' + 'cross-cloud'. Calculated Insights sono batch-processed (confermato da Q51). Semantic Model Metrics permettono query multidimensionali dinamiche. Set1 90% in Enhancements → ~1 errore.\n\n⚡ Candidata #1 per l'errore della sezione Enhancements di Set1."}},
 {id:47,src:"Set1",text:"A predictive model has been built and deployed in Einstein Studio.\n\nWhat is the standard method to apply predictions to a business process?",options:["Use Identity Resolution to merge predictions with Individual records.","Embed the Einstein Studio URL into a Lightning component.","Use predict jobs or call the model via Flow Builder.","Manually export the CSV and re-import into Service Cloud."],correct:[2]},
 {id:48,src:"Set1",text:"What is the primary functionality of Data 360?",options:["To help users build a heat map using their data","To automatically generate sales forecasts based on historical email patterns","To create a master data management (MDM) strategy","To unify and harmonize data from multiple sources to create a complete customer profile"],correct:[3]},
 {id:49,src:"Set1",text:"Which mechanism ensures different business units can use the same Data 360 home org while keeping their data and metadata logically separated?",options:["Use separate data spaces for each business unit","Use separate objects per business unit with record-type filtering","Use separate companion connections within the same data space","Use different permission sets within the same data space"],correct:[0]},
@@ -255,162 +191,91 @@ const BANK=[
 {id:56,src:"Set1",text:"How does Data 360 handle an individual's Right to Be Forgotten?",options:["Deletes the Individual and records from any DMO/DLO related to the Individual","Deletes the Individual record and its Unified Individual Link record only","Deletes the Individual and records from any data source object mapped to the Individual DMO","Deletes from all data source objects; downstream DMOs updated at next ingestion"],correct:[0]},
 {id:57,src:"Set1",text:"A consultant noticed a recent increase in a customer's consolidation rate.\n\nWhich change to the identity resolution ruleset typically causes this?",options:["Reducing the number of data sources mapped to the Individual object","Deleting duplicate records from source data streams","Modifying a ruleset that increases the number of matched profiles","Removing existing identity resolution rules"],correct:[2]},
 {id:58,src:"Set1",text:"Which data model subject area defines the revenue or quantity for an opportunity by product family?",options:["Party","Product","Engagement","Sales Order"],correct:[3]},
-{id:59,src:"Set1",text:"A Data 360 Consultant needs to filter out specific contact points from the Unified Individuals that qualify for a segment.\n\nWhere should the consultant apply this filtering?",options:["Apply contact point filtering leveraging a calculated insight","Apply contact point filtering when creating an activation","Apply contact point filtering on data ingestion","Apply contact point filtering during the creation of the segment"],correct:[3],aiNote:{alt:"B (when creating an activation)",confidence:"high",text:"La risposta selezionata è D (during segment creation), ma la risposta corretta potrebbe essere B (when creating an activation). Ecco perché:\n\n1. In Salesforce Data Cloud, il 'Contact Point filtering' è una funzionalità specifica dell'Activation setup, NON della segmentazione\n2. La segmentazione definisce CHI includere (quali individui), mentre l'activation definisce COME raggiungerli (quale contact point usare)\n3. La feature 'Contact Point Priority' e il filtraggio dei contact point sono configurati nell'activation step\n4. La documentazione Salesforce specifica: 'When you create an activation, you can choose which contact points to include'\n5. Set1 ha 83% in 'Data Activations and Utilization' → questa sezione contiene 1-2 errori\n\n⚡ Questa è una candidata molto forte ad essere uno degli errori della sezione 'Activations'."}},
+{id:59,src:"Set1",text:"A Data 360 Consultant needs to filter out specific contact points from the Unified Individuals that qualify for a segment.\n\nWhere should the consultant apply this filtering?",options:["Apply contact point filtering leveraging a calculated insight","Apply contact point filtering when creating an activation","Apply contact point filtering on data ingestion","Apply contact point filtering during the creation of the segment"],correct:[3],aiNote:{alt:"B (when creating an activation)",confidence:"high",text:"Set1 seleziona D (during segment). Set2 Q46 ha la stessa domanda e seleziona ANCHE C (during segment) — stessa risposta. Tuttavia, in Salesforce Data Cloud il contact point filtering è una feature dell'Activation setup, non della segmentazione. La segmentation definisce CHI, l'activation definisce COME raggiungere.\n\n⚡ Entrambi i set concordano su 'segment', ma la documentazione Salesforce indica 'activation'. Candidata forte per errore in entrambi i set."}},
 {id:60,src:"Set1",text:"A customer needs to honor Right to Be Forgotten requests. The consultant determines Consent API will solve this.\n\nWhich consideration should the consultant communicate?",options:["Data Deletion requests are submitted for Individual profiles.","Data Deletion automatically happens for related records.","Data Deletion requests are passed to all connected Salesforce clouds.","Data Deletion requests are processed within 1 hour."],correct:[0]},
 {id:61,src:"Set1",text:"A consultant wants to activate a segment on the Unified Individual object.\n\nWhich steps are required from ingestion to activation?",options:["Data → DLO → Map to DMO → Activation","Data → DLO → Map to DMO → Identity Resolution & Unification → Activation","Data → DLO → Map to DMO → Identity Resolution & Unification → Segmentation → Activation","Data → DLO → Identity Resolution & Unification → Segmentation → Activation"],correct:[2]},
 {id:62,src:"Set1",text:"What is a Data 360 use case for improving the patient experience in Healthcare and Life Sciences?",options:["Automating the retail checkout process in hospital gift shops","Activating a Unified Health Score to provide a holistic view of patient wellness and engagement","Using data to predict the best hospital location for the patient","Managing the payroll of visiting physicians via a custom mobile app"],correct:[1]},
 {id:63,src:"Set1",text:"A customer needs a notification whenever an activation fails for a particular segment.\n\nWhich feature should the consultant use?",options:["Report","Dashboard","Flow","Activation alert"],correct:[3]},
 {id:64,src:"Set1",text:"A consultant needs real-time, multidimensional analytics for \"Net Profit\" in Tableau Next with dynamic filtering by region, period, and product category.\n\nWhich approach should be taken?",options:["Create a calculated insight using SQL.","Create a calculated field in the semantic layer.","Configure a streaming transform.","Define a real-time data graph."],correct:[1]},
-{id:65,src:"Set1",text:"A Data 360 Consultant is configuring an activation to send unified individuals to Marketing Cloud Engagement. Only the preferred email address should be sent.\n\nWhich feature should be configured?",options:["Activation membership rules","Contact point priority","Data stream field mapping","Identity resolution reconciliation rules"],correct:[1]}
+{id:65,src:"Set1",text:"A Data 360 Consultant is configuring an activation to send unified individuals to Marketing Cloud Engagement. Only the preferred email address should be sent.\n\nWhich feature should be configured?",options:["Activation membership rules","Contact point priority","Data stream field mapping","Identity resolution reconciliation rules"],correct:[1]},
+// ===================== SET 2 (52 domande uniche — 13 duplicate rimosse) =====================
+{id:1,src:"Set2",text:"Cumulus Financial wants its service reps to view all cases associated with a Unified Individual on a contact record.\n\nWhich feature should a Data 360 Consultant consider for this use case?",options:["Related List Enrichment","Data Action","Copy Field Enrichment","Segment Activation"],correct:[0]},
+{id:3,src:"Set2",text:"A Data 360 Consultant needs to provide real-time, multidimensional analytics for a derived insight, \"Net Profit\", to be used within Tableau Next. The metrics must be as up to date as possible while allowing users to dynamically filter by region, period, and product category.\n\nWhich approach should the consultant take?",options:["Define a real-time data graph.","Configure a streaming transform.","Create a calculated insight using SQL.","Create a calculated field in the semantic layer."],correct:[2],aiNote:{alt:"D (semantic layer)",confidence:"high",text:"Set2 seleziona C (Calculated Insight SQL). Ma Set1 Q64 ha la stessa domanda e seleziona B (semantic layer), con Set1 al 100% nella sezione. La semantic layer è progettata esattamente per Tableau Next con filtri dinamici multidimensionali. Calculated Insights sono batch e non 'real-time'.\n\n⚡ Set1 (100% sezione) dice Semantic Layer. Set2 (81% sezione) dice Calculated Insight. Fidati di Set1 qui."}},
+{id:4,src:"Set2",text:"A Data 360 Consultant needs to unify records from a legacy billing system and a CRM. Both systems use different internal IDs, but both store a common Customer Tax ID.\n\nHow should the consultant ensure these records can be matched in an identity resolution ruleset?",options:["Map both the billing ID and CRM ID to the Individual Primary Key field.","Create a reconciliation rule that gives the CRM data stream a higher priority than the billing system.","Configure a fuzzy match rule on the Individual object using the Customer_Tax_ID attribute.","Map the Customer_Tax_ID from both systems to the Party Identification object with a consistent Identification Name."],correct:[3]},
+{id:5,src:"Set2",text:"Data 360 receives a nightly file of all ecommerce transactions from the previous day. Several segments and activations depend upon calculated insights from the updated data.\n\nWhat should the Data 360 Consultant do to ensure the ecommerce data is ready for each scheduled activation?",options:["Set a refresh schedule for the calculated insights to occur every hour.","Ensure the activations are set to Incremental Activation and automatically publish every hour.","Ensure the segments are set to Rapid Publish and set to refresh every hour.","Use Flow to trigger a change data event on the ecommerce data to refresh calculated insights and segments before the activations are scheduled to run."],correct:[3]},
+{id:7,src:"Set2",text:"Which tool should users use to visualize and analyze unified customer data in Data 360?",options:["Heroku","Tableau","Salesforce CLI","Intelligence Reports Advanced"],correct:[1]},
+{id:8,src:"Set2",text:"A luxury travel company wants to optimize high-value customer retention. The marketing team requires a predictive insight that estimates total dollar amount a unified profile is likely to spend on bookings over the next 12 months.\n\nWhich native model type should a consultant select in Einstein Studio?",options:["Multiclass model","Binary model","Foundational model","Regression model"],correct:[3]},
+{id:9,src:"Set2",text:"A marketer needs to segment customers based on their Lifetime Loyalty Points. This requires summing all point-based transactions from a historical ledger and a Commerce Cloud data stream.\n\nWhich tool should the marketer use?",options:["Secondary Index","Streaming Transform","Calculated Insight","Batch Transform"],correct:[2]},
+{id:11,src:"Set2",text:"Northern Trail Outfitters wants to enable Suggested Values for several attributes. One attribute, Secondary Product Code, contains 5,000 distinct values.\n\nWhat should a consultant consider before enabling value suggestions for this attribute?",options:["The feature only displays the first 1,000 distinct values, which may lead to incomplete results.","The system requires a custom streaming data transform to refresh values for high-cardinality attributes.","Suggested values will fail to load if the attribute contains more than 500 unique entries.","Value suggestions are only available for attributes mapped to the Engagement category."],correct:[0]},
+{id:12,src:"Set2",text:"A Data 360 Consultant wants to perform aggregations in 15-minute windows on data collected via the Interactions SDK or Mobile SDK.\n\nWhich method should the consultant use?",options:["Calculated insight","Formula fields","Batch transform","Streaming insight"],correct:[3]},
+{id:13,src:"Set2",text:"When setting up file federation for a data lake on Azure Blob Storage, what is the role of the manifest file?",options:["It provides the PGP public key required to decrypt the federated data files.","It defines metadata and paths to identify specific files for the data stream and track updates.","It reduces the file size of the source data before Data 360 attempts to read it.","It is used to manually map source fields to the Cloud Information Model."],correct:[1]},
+{id:15,src:"Set2",text:"A company stores customer data in Marketing Cloud and uses the Marketing Cloud Connector to ingest data into Data 360.\n\nWhere does a request for Data Deletion or Right to Be Forgotten get submitted?",options:["On the individual data profile in Data 360","In Data 360 settings","Through Consent API","In Marketing Cloud settings"],correct:[2]},
+{id:16,src:"Set2",text:"A Data 360 Consultant at a global travel company needs to verify that join keys between the Unified Individual and a custom Loyalty Ledger DMO are returning expected results.\n\nWhich tool should the consultant use to execute a manual SQL query?",options:["The Data 360 Query Editor","The Data 360 Calculated Insights Builder","The Data 360 Metadata Search","The Data 360 Data Explorer"],correct:[0]},
+{id:19,src:"Set2",text:"What is a reason to create a formula when ingesting a data stream?",options:["To remove duplicate rows of data from the data stream","To concatenate files so they are ingested in the correct sequence","To transform a datetime field into a date field for use in data mapping","To add a unique external identifier to an existing ruleset"],correct:[2]},
+{id:21,src:"Set2",text:"A Data 360 Consultant is working with clean and organized data. However, the various schemas refer to a person by multiple names — such as user, contact, and subscriber — and need a standard mapping.\n\nWhich term describes this process?",options:["Harmonize","Transform","Segment","Unity"],correct:[0]},
+{id:22,src:"Set2",text:"A data architect is using Change Sets to move data configurations between two Data 360 environments. The architect has created a data kit with several new data streams and identity resolution rules.\n\nWhich component type should the architect select when adding these to the outbound change set?",options:["Data Package Kit Definition","Data 360 Metadata Definition","Identity Resolution Ruleset","Data Stream Configuration"],correct:[0]},
+{id:23,src:"Set2",text:"An organization wants to give users the ability to identify and select text attributes from a picklist of options.\n\nWhich Data 360 feature should help with this use case?",options:["Global picklists","Value suggestion","Transformation formulas","Data harmonization"],correct:[1]},
+{id:25,src:"Set2",text:"A Data 360 Consultant has successfully ingested and mapped a custom schema for \"Vehicle Insurance Policies\" into a custom DMO named Insurance_Policy__c. However, a marketer cannot see it in Segment Builder when segmenting on Individual.\n\nWhat is the most likely reason?",options:["The relationship between the DMOs was configured as Many-to-One instead of One-to-Many.","The fields in the Insurance_Policy__c DMO have not had value suggestions enabled.","The Insurance_Policy__c DMO was not enabled for segmentation.","There is no relationship defined between the Insurance_Policy__c DMO and the Individual DMO."],correct:[2],aiNote:{alt:"D (no relationship defined)",confidence:"med",text:"Set2 seleziona C (not enabled for segmentation). Tuttavia, D (no relationship to Individual) è anche una causa molto comune. Se il DMO non ha relazione con Individual, non apparirà in Segment Builder. Set2 ha 91% in Activations. La C è plausibile ma D merita considerazione."}},
+{id:27,src:"Set2",text:"A Data 360 Consultant recently discovered that their Identity Resolution process is matching individuals who share email addresses or phone numbers but are not actually the same individual.\n\nWhat should the consultant do?",options:["Modify the existing ruleset to use fewer matching rules, run and review, adjust as needed.","Modify the existing ruleset with stricter matching criteria, run and review, adjust as needed.","Create and run a new ruleset with fewer matching rules, compare the two rulesets, then migrate.","Create and run a new ruleset with stricter matching criteria, compare the two, then migrate."],correct:[1],aiNote:{alt:"D (create NEW ruleset with stricter criteria)",confidence:"high",text:"Set2 seleziona B (modify existing). Ma la best practice Salesforce per Identity Resolution è creare un NUOVO ruleset per confrontare i risultati prima di migrare, non modificare quello esistente direttamente. La risposta D segue il pattern corretto: create → compare → migrate.\n\nSet2 ha 70% in 'Harmonization and Unification' → ~3 errori. Questa è una candidata forte."}},
+{id:28,src:"Set2",text:"A customer has multiple data sources and needs to match and reconcile data about individuals into a single unified profile.\n\nWhich feature should the Data 360 Consultant recommend?",options:["Data Consolidation","Identity Resolution","Data Cleansing","Harmonization"],correct:[1]},
+{id:29,src:"Set2",text:"What is a key requirement for a flow to act on Data 360 data in near real time using a data action?",options:["The Data 360 home instance must be in the same Salesforce CRM org.","The flow must be active and the user must have the Data 360 Marketing Admin permission.","The flow must be a screen flow embedded on the record page.","The data action must be mapped to a platform event that the flow is subscribed to."],correct:[3]},
+{id:30,src:"Set2",text:"A lead architect needs to build a real-time Customer Health Dashboard displaying a unified customer's recent purchase history and calculated loyalty score.\n\nWhich API strategy is most appropriate?",options:["Use the Ingestion API to push dashboard requirements into a data stream.","Use the Profile API because it is optimized for high-speed retrieval of unified profile attributes and calculated insights.","Use the Query API to send an SQL/SOQL-based request to join data.","Use the Metadata API to retrieve the schema then use a standard REST GET call."],correct:[1]},
+{id:31,src:"Set2",text:"A financial services firm wants to manage individual client profiles within family portfolios. Family members share addresses and sometimes phone numbers but have distinct financial goals. The firm must avoid blending family profiles.\n\nWhich Identity Resolution strategy should the consultant put in place?",options:["Include a match rule that incorporates match on individual and contact point attributes.","Configure a single match rule based on contact phone number.","Use multiple contact points without individual attributes in the match rules.","Configure a single match rule with a single connected contact point based on address."],correct:[2],aiNote:{alt:"A (individual AND contact point attributes)",confidence:"high",text:"Set2 seleziona C (multiple contact points WITHOUT individual attributes). Ma per evitare di fondere membri della stessa famiglia che condividono indirizzo/telefono, servono regole PIÙ RESTRITTIVE che includano attributi individuali (nome, cognome) INSIEME ai contact point. La risposta A (individual + contact point) è la strategia corretta per evitare over-matching.\n\nSet2 ha 70% in 'Harmonization' → ~3 errori. Candidata forte per errore."}},
+{id:33,src:"Set2",text:"After a predictive model is activated in Data 360, where are the resulting scores or predictions typically stored for use in segmentation?",options:["Directly within the source system (e.g., Marketing Cloud or Sales Cloud) only","In a temporary CSV file available in the Setup menu","As an attribute on a related data model object (DMO)","Within the Audit Trail logs for security compliance"],correct:[2]},
+{id:34,src:"Set2",text:"Cumulus Financial created a foundational segment called High Investment Balance Customers that the marketing team should consistently use.\n\nWhat should the consultant recommend to ensure consistency when creating more refined segments?",options:["Create new segments by cloning High Investment Balance Customers.","Create a High Investment Balance calculated insight.","Create new segments using nested segments.","Package High Investment Balance Customers in a data kit."],correct:[0],aiNote:{alt:"C (nested segments)",confidence:"high",text:"Set2 seleziona A (clone). Ma clonare un segmento crea una copia indipendente che non si aggiorna quando il segmento originale cambia. Per garantire 'consistency' quando il team crea segmenti più raffinati, i NESTED SEGMENTS (C) sono la best practice: il segmento figlio referenzia sempre il segmento padre aggiornato.\n\nIn Set1 Q11 una domanda simile usa 'reusable container block'. Set2 91% in Activations → ~1 errore."}},
+{id:36,src:"Set2",text:"Northern Trail Outfitters is ingesting transaction data. The source includes Order ID, Order Date, and Total Amount (standard Sales Order DMO) plus a unique Sustainability Packaging Fee not available in the standard model.\n\nWhich modeling approach should a consultant recommend?",options:["Create a calculated model to derive the sustainability fee using a streaming data transform.","Map all fields to a new Custom DMO specifically created for NTO transactions.","Use Sales Order DMO and map the packaging fee to the Order Description field.","Map standard fields to the Sales Order DMO and add a custom attribute for the fee."],correct:[3]},
+{id:37,src:"Set2",text:"What is the main reason to use a secondary index on a data lake object (DLO)?",options:["To increase the write speed of the ingestion pipeline","To enable efficient querying on non-primary key attributes","To transform raw data into a different data type","To compress the storage footprint of the raw data"],correct:[1]},
+{id:38,src:"Set2",text:"Which statement about Data 360's Web and Mobile Application Connector is true?",options:["Any data streams associated with the connector will be automatically deleted upon deleting the app.","The Tenant Specific Endpoint is auto-generated in Data 360 when setting the connector.","A standard schema containing event, profile, and transaction data is created at configuration time.","The connector schema can be updated to delete an existing field."],correct:[1]},
+{id:39,src:"Set2",text:"A Data 360 Consultant is setting up a data stream with transactional data.\n\nWhich field type should the consultant choose to ensure that leading zeros in the purchase order number are preserved?",options:["Number","Serial","Text","Decimal"],correct:[2]},
+{id:41,src:"Set2",text:"What is the minimum requirement needed when using the Visual Insights Builder to create a calculated insight?",options:["A WHERE clause","A SUM function","Joining on two or more data model objects","At least one measure and one dimension"],correct:[3]},
+{id:42,src:"Set2",text:"A retail company wants a dashboard to display \"Top 10 Trending Products\" based on product page views over the last 24 hours. 500M+ engagements/week. Max latency 15 minutes. Dashboard must load fast.\n\nWhich architectural component should the consultant use?",options:["Streaming Insight","Real-Time Data Graph","Direct Related List","Calculated Insights"],correct:[0]},
+{id:43,src:"Set2",text:"Northern Trail Outfitters is struggling with fragmented customer data across marketing, sales, and service systems.\n\nHow does Data 360 primarily help NTO solve this business challenge?",options:["It archives historical transaction records for 10 years for regulatory retention.","It provides a data security layer that encrypts sensitive information for GDPR compliance.","It unifies data into a single profile to provide personalized experiences across all touch points.","It creates automated weekly business intelligence dashboards to help managers forecast sales revenue."],correct:[2]},
+{id:44,src:"Set2",text:"What does the Source Sequence reconciliation rule do in Identity Resolution?",options:["Includes data from sources where the data is most frequently occurring","Identifies which data sources should be used in reconciliation by prioritizing the most recently updated source","Identifies which individual records should be merged into a unified profile by setting a priority for specific data sources","Sets the priority of specific data sources when building attributes in a unified profile, such as a first or last name"],correct:[1],aiNote:{alt:"D (sets priority of data sources for attributes)",confidence:"high",text:"Set2 seleziona B (prioritizing most recently updated source). Ma Source Sequence reconciliation rule in Salesforce Data Cloud definisce la PRIORITÀ di specifici data source quando si costruiscono attributi nel profilo unificato (es: quale sistema ha il nome più affidabile). La risposta D descrive esattamente questa funzionalità. B descrive più 'Most Recent' che è una regola diversa.\n\nSet2 ha 70% in 'Harmonization' → ~3 errori. Candidata forte."}},
+{id:45,src:"Set2",text:"A Data 360 Consultant at NTO is ingesting a field from the Contact object in Salesforce CRM that contains both yyyy-mm-dd and yyyy-mm-dd hh:mm:ss values. The target field is set to Date datatype.\n\nWhich statement is true?",options:["The target field will only hold the date part and ignore the time part.","The target field will only hold the time part and ignore the date part.","The target field will throw an error and store null values.","The target field will be able to hold both types of values."],correct:[0]},
+{id:47,src:"Set2",text:"A data architect is modeling a relationship between a custom Vehicle DMO and the standard Individual DMO. One vehicle can be owned by only one individual, but one individual can own multiple vehicles.\n\nWhich cardinality should the architect select from Vehicle to Individual?",options:["Many-to-Many (N:N)","Many-to-One (N:1)","One-to-Many (1:N)","One-to-One (1:1)"],correct:[2],aiNote:{alt:"B (Many-to-One N:1)",confidence:"med",text:"Set2 seleziona C (One-to-Many 1:N from Vehicle to Individual). Ma se 1 vehicle → 1 individual e 1 individual → many vehicles, allora FROM Vehicle TO Individual è Many-to-One (N:1), perché molti veicoli puntano a un individuo. La cardinalità dipende dalla direzione della relazione. Se la relazione è 'da Vehicle verso Individual', è N:1."}},
+{id:48,src:"Set2",text:"A Data 360 Consultant wants to use Data 360 Clean Rooms to collaborate with a partner.\n\nWhich statement is true regarding data security?",options:["The data stays in its original location, and only the query results are shared.","PII is automatically decrypted for the consumer to ensure matching accuracy.","Both parties must move their data into a shared Amazon S3 bucket first.","The provider must grant Modify All Data permissions to the consumer."],correct:[0]},
+{id:50,src:"Set2",text:"A customer requests that their personal data be deleted.\n\nWhich action should the Data 360 Consultant take to accommodate this request?",options:["Use a streaming API call to delete the customer's information from the data lake object.","Use the Governance API call to delete the customer's information.","Use Profile Explorer to delete the customer data from Data 360.","Use Consent API to request deletion of the customer's information."],correct:[3]},
+{id:51,src:"Set2",text:"How should a Data 360 Consultant modify attribute names to match a naming convention in Cloud File Storage targets?",options:["Use a formula field to update the field name in an activation.","Update attribute names in the data stream configuration.","Set preferred attribute names when configuring activation.","Update field names in the data model object."],correct:[1],aiNote:{alt:"C (set preferred names in activation)",confidence:"med",text:"Set2 seleziona B (data stream configuration). Tuttavia, per Cloud File Storage activation targets, è possibile rinominare gli attributi direttamente nella configurazione dell'activation (C). L'approccio B modifica i nomi a livello di ingestion che impatta tutti gli usi downstream. Set2 81% in Enhancements → ~2 errori."}},
+{id:52,src:"Set2",text:"A Data 360 Consultant is planning to use Data Explorer to examine Data 360 data.\n\nWhich data is the consultant able to examine in Data Explorer?",options:["Segments, data model objects, calculated insights","Data lake objects, data model objects, calculated insights","Activations, data lake objects, calculated insights","Data source objects, data lake objects, data model objects"],correct:[1]},
+{id:54,src:"Set2",text:"Northern Trail Outfitters wants to send a promotional campaign to customers who purchased within the past 6 months. Now NTO wants to suppress customers who purchased within the last week.\n\nWhat should the consultant use to remove recent customers?",options:["Batch transforms","Segmentation exclude rules","Related attributes","Streaming insights"],correct:[1]},
+{id:55,src:"Set2",text:"A consultant creates a segment of customers who placed orders in the last 30 days and includes related attributes from the Sales Order DMO in the activation. After activating to Marketing Cloud, some orders older than 30 days are included.\n\nWhat should the consultant do?",options:["Filter out older orders in Marketing Cloud after activation.","Apply a 30-day date filter on the Sales Order DMO within the activation.","Build a segment using the Sales Order DMO and filter orders to the last 30 days.","Apply a data space filter to exclude orders older than 30 days."],correct:[1]},
+{id:56,src:"Set2",text:"A retail company has customer data scattered across CRM, ecommerce, and support platforms. Marketing and support teams struggle to get a complete customer picture.\n\nWhich Salesforce Data 360 feature should the company implement first?",options:["Automating proactive service actions using IoT and predictive analytics","Creating real-time AI-driven recommendations for customer engagement","Delivering personalized offers across channels based on advanced segmentation","Unifying fragmented customer and business data into a single, comprehensive view"],correct:[3]},
+{id:57,src:"Set2",text:"An organization is just getting started with Data 360 and wants to demonstrate quick wins for broader adoption.\n\nWhich business outcome should the organization prioritize?",options:["Consolidating all partner and supply chain data into a single master management hub","Implementing a global data lineage system for data quality scores and audit reports","Building a predictive platform to update dynamic segments every 30 seconds","Improving customer service resolution times by giving support agents a 360-degree view"],correct:[3]},
+{id:59,src:"Set2",text:"A global ecommerce brand tasks a Data 360 Consultant with resolving duplicate customer records originating from a web portal, a mobile app, and a physical point-of-sale system.\n\nWhich feature should the consultant configure?",options:["Streaming insights to detect real-time changes in customer contact information","Matching rules within the Identity Resolution settings to link source records","Data transform logic to normalize naming conventions during ingestion","Partitioning strategies to separate data based on the original source system"],correct:[1]},
+{id:60,src:"Set2",text:"Northern Trail Outfitters wants to run a multi-step marketing campaign where customers receive different offers based on a strict priority hierarchy. Each customer must be assigned to only one segment.\n\nWhich feature should a consultant recommend?",options:["Nested Segment Logic","Waterfall Segmentation","Sequential Segment Membership","Exclusion Rules"],correct:[1]}
 ];
-
-// ================================================================
-// ENGINE
 // ================================================================
 let mode='random',questions=[],ci=0,correct=0,wrong=0,answered=0,hist=[];
 let wrongIds=JSON.parse(localStorage.getItem('d360w')||'[]');
 let selectedSrcs=new Set();
 let autoAdvance=false,aaTimer=null,aaAnimFrame=null;
-
 function init(){
   const srcs=[...new Set(BANK.map(q=>q.src))].sort();
   const cont=document.getElementById('srcTags');
-  srcs.forEach(s=>{
-    const b=document.createElement('button');
-    b.className='src-tag on';
-    b.textContent=s+` (${BANK.filter(q=>q.src===s).length})`;
-    b.dataset.src=s;
-    b.onclick=()=>{b.classList.toggle('on');updateSrcSelection()};
-    cont.appendChild(b);selectedSrcs.add(s);
-  });
-  updateSlider();updateDbStats();
-  document.getElementById('wrongCountStart').textContent=wrongIds.length;
+  srcs.forEach(s=>{const b=document.createElement('button');b.className='src-tag on';b.textContent=s+` (${BANK.filter(q=>q.src===s).length})`;b.dataset.src=s;b.onclick=()=>{b.classList.toggle('on');updateSrcSelection()};cont.appendChild(b);selectedSrcs.add(s)});
+  updateSlider();updateDbStats();document.getElementById('wrongCountStart').textContent=wrongIds.length;
 }
 function toggleAaCfg(){document.getElementById('aaCfg').classList.toggle('show',document.getElementById('chkAuto').checked)}
 function updateSrcSelection(){selectedSrcs.clear();document.querySelectorAll('.src-tag.on').forEach(b=>selectedSrcs.add(b.dataset.src));updateSlider()}
-function getPool(){
-  let p=BANK.filter(q=>selectedSrcs.has(q.src));
-  if(document.getElementById('chkWrong').checked&&wrongIds.length>0)p=p.filter(q=>wrongIds.includes(q.src+'_'+q.id));
-  return p;
-}
+function getPool(){let p=BANK.filter(q=>selectedSrcs.has(q.src));if(document.getElementById('chkWrong').checked&&wrongIds.length>0)p=p.filter(q=>wrongIds.includes(q.src+'_'+q.id));return p}
 function updateSlider(){const p=getPool(),s=document.getElementById('qSlider');s.max=Math.max(p.length,1);if(+s.value>p.length)s.value=p.length;document.getElementById('qSliderVal').textContent=+s.value===p.length?'Tutte ('+p.length+')':s.value}
 function setSliderPreset(n){const s=document.getElementById('qSlider');s.value=n===0?s.max:Math.min(n,+s.max);updateSlider()}
-function updateDbStats(){const s=[...new Set(BANK.map(q=>q.src))];document.getElementById('dbStats').innerHTML=`<div class="db-s">📦 Totale: <b>${BANK.length}</b> domande</div>`+s.map(x=>`<div class="db-s">📁 ${x}: <b>${BANK.filter(q=>q.src===x).length}</b></div>`).join('')}
+function updateDbStats(){const s=[...new Set(BANK.map(q=>q.src))];document.getElementById('dbStats').innerHTML=`<div class="db-s">📦 Totale: <b>${BANK.length}</b> domande uniche</div>`+s.map(x=>`<div class="db-s">📁 ${x}: <b>${BANK.filter(q=>q.src===x).length}</b></div>`).join('')}
 function setMode(m,btn){mode=m;document.querySelectorAll('.tgl-b[data-m]').forEach(b=>b.classList.remove('on'));btn.classList.add('on')}
 function shuffle(a){const r=[...a];for(let i=r.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[r[i],r[j]]=[r[j],r[i]]}return r}
 function getOrigPos(q){return BANK.filter(x=>x.src===q.src).findIndex(x=>x.id===q.id)+1}
 function getSetTotal(q){return BANK.filter(x=>x.src===q.src).length}
-
-function startQuiz(){
-  let pool=getPool();
-  if(!pool.length){alert('Nessuna domanda disponibile!');return}
-  if(mode==='random')pool=shuffle(pool);
-  questions=pool.slice(0,+document.getElementById('qSlider').value);
-  ci=0;correct=0;wrong=0;answered=0;hist=[];
-  autoAdvance=document.getElementById('chkAuto').checked;
-  document.getElementById('startScreen').style.display='none';
-  document.getElementById('quizScreen').style.display='block';
-  document.getElementById('modeLabel').textContent=`${mode==='random'?'🔀 Random':'📋 Seq'} · ${questions.length}q · ${[...selectedSrcs].join(', ')}${autoAdvance?' · ⏩':''}`;
-  document.getElementById('sR').textContent=questions.length;
-  document.getElementById('nxtBtn').style.display=autoAdvance?'none':'';
-  renderQ();
-}
-
+function startQuiz(){let pool=getPool();if(!pool.length){alert('Nessuna domanda disponibile!');return}if(mode==='random')pool=shuffle(pool);questions=pool.slice(0,+document.getElementById('qSlider').value);ci=0;correct=0;wrong=0;answered=0;hist=[];autoAdvance=document.getElementById('chkAuto').checked;document.getElementById('startScreen').style.display='none';document.getElementById('quizScreen').style.display='block';document.getElementById('modeLabel').textContent=`${mode==='random'?'🔀 Random':'📋 Seq'} · ${questions.length}q · ${[...selectedSrcs].join(', ')}${autoAdvance?' · ⏩':''}`;document.getElementById('sR').textContent=questions.length;document.getElementById('nxtBtn').style.display=autoAdvance?'none':'';renderQ()}
 function clearAA(){if(aaTimer){clearTimeout(aaTimer);aaTimer=null}if(aaAnimFrame){cancelAnimationFrame(aaAnimFrame);aaAnimFrame=null}document.getElementById('aaBarWrap').classList.remove('show')}
-function startAA(ok){
-  const w=document.getElementById('aaBarWrap'),f=document.getElementById('aaBarFill'),l=document.getElementById('aaLabel');
-  const d=parseFloat(document.getElementById('aaSlider').value)*1000;
-  w.classList.add('show');f.className='aa-bar-fill '+(ok?'aa-ok':'aa-ko');f.style.transition='none';f.style.width='100%';
-  l.textContent=`Prossima tra ${(d/1000).toFixed(1)}s — clicca per saltare`;
-  w.onclick=()=>{clearAA();nextQ()};
-  const st=performance.now();
-  function anim(now){const e=now-st,p=Math.max(0,1-e/d)*100;f.style.transition='none';f.style.width=p+'%';if((d-e)/1000>0)l.textContent=`Prossima tra ${((d-e)/1000).toFixed(1)}s — clicca per saltare`;if(e<d)aaAnimFrame=requestAnimationFrame(anim)}
-  requestAnimationFrame(()=>requestAnimationFrame(anim));
-  aaTimer=setTimeout(()=>{clearAA();nextQ()},d);
-}
-
-function renderQ(){
-  clearAA();
-  const q=questions[ci];
-  document.getElementById('qNum').textContent=`${ci+1} / ${questions.length}`;
-  document.getElementById('qSrc').textContent='📁 '+q.src;
-  document.getElementById('qOrig').textContent=`#${getOrigPos(q)} di ${getSetTotal(q)} nel ${q.src}`;
-  document.getElementById('qTxt').innerText=q.text;
-  const doS=document.getElementById('chkShuffle').checked;
-  let idx=q.options.map((_,i)=>i);if(doS)idx=shuffle(idx);
-  q._map=idx;q._rmap=[];idx.forEach((o,d)=>{q._rmap[o]=d});
-  const list=document.getElementById('optList');list.innerHTML='';
-  idx.forEach((o,d)=>{
-    const li=document.createElement('li'),btn=document.createElement('button');
-    btn.className='opt';btn.innerHTML=`<span class="lt">${String.fromCharCode(65+d)}</span><span>${q.options[o]}</span>`;
-    btn.onclick=()=>selectAns(o);btn.dataset.origIdx=o;li.appendChild(btn);list.appendChild(li);
-  });
-  document.getElementById('fb').className='fb';document.getElementById('fb').style.display='none';
-  document.getElementById('aiNote').className='ai-note';document.getElementById('aiNote').style.display='none';
-  document.getElementById('nxtBtn').disabled=true;
-}
-
-function selectAns(oi){
-  const q=questions[ci],btns=document.querySelectorAll('.opt');
-  btns.forEach(b=>b.classList.add('dis'));
-  const ok=q.correct.includes(oi),uid=q.src+'_'+q.id;
-  btns.forEach(b=>{const x=+b.dataset.origIdx;if(x===oi)b.classList.add(ok?'ok':'ko');if(!ok&&q.correct.includes(x))b.classList.add('ok')});
-  const fb=document.getElementById('fb');
-  if(ok){correct++;fb.className='fb fb-g show';fb.textContent='✅ Corretto!';wrongIds=wrongIds.filter(i=>i!==uid)}
-  else{wrong++;fb.className='fb fb-r show';fb.textContent=`❌ Sbagliato! Corretta: ${q.correct.map(c=>String.fromCharCode(65+q._rmap[c])).join(', ')}`;if(!wrongIds.includes(uid))wrongIds.push(uid)}
-  localStorage.setItem('d360w',JSON.stringify(wrongIds));
-  answered++;
-
-  // AI Note
-  if(q.aiNote){
-    const an=document.getElementById('aiNote'),ab=document.getElementById('aiBody');
-    const confLabel=q.aiNote.confidence==='high'?'⚠️ ALTA PROBABILITÀ':q.aiNote.confidence==='med'?'🔶 MEDIA PROBABILITÀ':'🔷 BASSA PROBABILITÀ';
-    const confClass=q.aiNote.confidence;
-    ab.innerHTML=`${q.aiNote.text.replace(/\n/g,'<br>')}<br><span class="ai-conf ${confClass}">${confLabel} che la risposta alternativa (<span class="ai-alt">${q.aiNote.alt}</span>) sia corretta</span>`;
-    an.className='ai-note show';an.style.display='block';
-  }
-
-  hist.push({qId:q.id,src:q.src,origPos:getOrigPos(q),setTotal:getSetTotal(q),qShort:q.text.split('\n')[0].substring(0,90)+'…',ok,yours:String.fromCharCode(65+q._rmap[oi]),right:q.correct.map(c=>String.fromCharCode(65+q._rmap[c])).join(', '),hasAiNote:!!q.aiNote});
-  updStats();fb.scrollIntoView({behavior:'smooth',block:'nearest'});
-  document.getElementById('nxtBtn').disabled=false;
-  if(autoAdvance)startAA(ok);
-}
-
-function updStats(){
-  document.getElementById('sC').textContent=correct;document.getElementById('sW').textContent=wrong;
-  document.getElementById('sR').textContent=questions.length-answered;
-  const p=answered?Math.round(correct/answered*100):0;
-  document.getElementById('sP').textContent=p+'%';
-  document.getElementById('pBar').style.width=(answered/questions.length*100)+'%';
-}
+function startAA(ok){const w=document.getElementById('aaBarWrap'),f=document.getElementById('aaBarFill'),l=document.getElementById('aaLabel'),d=parseFloat(document.getElementById('aaSlider').value)*1000;w.classList.add('show');f.className='aa-bar-fill '+(ok?'aa-ok':'aa-ko');f.style.transition='none';f.style.width='100%';l.textContent=`Prossima tra ${(d/1000).toFixed(1)}s — clicca per saltare`;w.onclick=()=>{clearAA();nextQ()};const st=performance.now();function anim(now){const e=now-st,p=Math.max(0,1-e/d)*100;f.style.transition='none';f.style.width=p+'%';if((d-e)/1000>0)l.textContent=`Prossima tra ${((d-e)/1000).toFixed(1)}s — clicca/spazio per saltare`;if(e<d)aaAnimFrame=requestAnimationFrame(anim)}requestAnimationFrame(()=>requestAnimationFrame(anim));aaTimer=setTimeout(()=>{clearAA();nextQ()},d)}
+function renderQ(){clearAA();const q=questions[ci];document.getElementById('qNum').textContent=`${ci+1} / ${questions.length}`;document.getElementById('qSrc').textContent='📁 '+q.src;document.getElementById('qOrig').textContent=`#${q.id} nel ${q.src} (pos ${getOrigPos(q)}/${getSetTotal(q)})`;document.getElementById('qTxt').innerText=q.text;const doS=document.getElementById('chkShuffle').checked;let idx=q.options.map((_,i)=>i);if(doS)idx=shuffle(idx);q._map=idx;q._rmap=[];idx.forEach((o,d)=>{q._rmap[o]=d});const list=document.getElementById('optList');list.innerHTML='';idx.forEach((o,d)=>{const li=document.createElement('li'),btn=document.createElement('button');btn.className='opt';btn.innerHTML=`<span class="lt">${String.fromCharCode(65+d)}</span><span>${q.options[o]}</span>`;btn.onclick=()=>selectAns(o);btn.dataset.origIdx=o;li.appendChild(btn);list.appendChild(li)});document.getElementById('fb').className='fb';document.getElementById('fb').style.display='none';document.getElementById('aiNote').className='ai-note';document.getElementById('aiNote').style.display='none';document.getElementById('nxtBtn').disabled=true}
+function selectAns(oi){const q=questions[ci],btns=document.querySelectorAll('.opt');btns.forEach(b=>b.classList.add('dis'));const ok=q.correct.includes(oi),uid=q.src+'_'+q.id;btns.forEach(b=>{const x=+b.dataset.origIdx;if(x===oi)b.classList.add(ok?'ok':'ko');if(!ok&&q.correct.includes(x))b.classList.add('ok')});const fb=document.getElementById('fb');if(ok){correct++;fb.className='fb fb-g show';fb.textContent='✅ Corretto!';wrongIds=wrongIds.filter(i=>i!==uid)}else{wrong++;fb.className='fb fb-r show';fb.textContent=`❌ Sbagliato! Corretta: ${q.correct.map(c=>String.fromCharCode(65+q._rmap[c])).join(', ')}`;if(!wrongIds.includes(uid))wrongIds.push(uid)}localStorage.setItem('d360w',JSON.stringify(wrongIds));answered++;if(q.aiNote){const an=document.getElementById('aiNote'),ab=document.getElementById('aiBody');const cl=q.aiNote.confidence;const lb=cl==='high'?'⚠️ ALTA PROBABILITÀ':cl==='med'?'🔶 MEDIA PROBABILITÀ':'🔷 BASSA PROBABILITÀ';ab.innerHTML=`${q.aiNote.text.replace(/\n/g,'<br>')}<br><span class="ai-conf ${cl}">${lb} che <span class="ai-alt">${q.aiNote.alt}</span> sia corretta</span>`;an.className='ai-note show';an.style.display='block'}hist.push({qId:q.id,src:q.src,origPos:getOrigPos(q),setTotal:getSetTotal(q),qShort:q.text.split('\n')[0].substring(0,90)+'…',ok,yours:String.fromCharCode(65+q._rmap[oi]),right:q.correct.map(c=>String.fromCharCode(65+q._rmap[c])).join(', '),hasAiNote:!!q.aiNote});updStats();fb.scrollIntoView({behavior:'smooth',block:'nearest'});document.getElementById('nxtBtn').disabled=false;if(autoAdvance)startAA(ok)}
+function updStats(){document.getElementById('sC').textContent=correct;document.getElementById('sW').textContent=wrong;document.getElementById('sR').textContent=questions.length-answered;const p=answered?Math.round(correct/answered*100):0;document.getElementById('sP').textContent=p+'%';document.getElementById('pBar').style.width=(answered/questions.length*100)+'%'}
 function nextQ(){clearAA();ci++;if(ci>=questions.length){endQuiz();return}renderQ();document.querySelector('.card').scrollIntoView({behavior:'smooth',block:'start'})}
-function endQuiz(){
-  clearAA();document.getElementById('quizScreen').style.display='none';
-  const es=document.getElementById('endScreen');es.style.display='flex';
-  const p=answered?Math.round(correct/answered*100):0,se=document.getElementById('fScore');
-  se.textContent=p+'%';se.className='fs '+(p>=80?'g':p>=60?'m':'b');
-  document.getElementById('fMsg').textContent=p>=80?'🎉 Eccellente! Sei pronto!':p>=60?'💪 Buon lavoro! Ripassa gli errori.':'📚 Continua a studiare!';
-  document.getElementById('fStats').innerHTML=`<div class="st st-g"><div class="n">${correct}</div><div class="l">Corrette</div></div><div class="st st-r"><div class="n">${wrong}</div><div class="l">Errate</div></div><div class="st st-b"><div class="n">${p}%</div><div class="l">Precisione</div></div><div class="st st-y"><div class="n">${questions.length-answered}</div><div class="l">Non risposte</div></div>`;
-}
-function showReview(){
-  const l=document.getElementById('rvwList');
-  if(l.style.display!=='none'){l.style.display='none';return}
-  l.style.display='flex';l.innerHTML='';
-  hist.forEach(h=>{
-    const d=document.createElement('div');d.className=`rv-it ${h.ok?'rv-g':'rv-r'}`;
-    d.innerHTML=`<div class="rq">Q#${h.qId} — ${h.qShort}</div><div class="rs">📁 ${h.src} · #${h.origPos} di ${h.setTotal}</div><div class="rd">Tua: <span class="${h.ok?'rg':'ry'}">${h.yours}</span> ${h.ok?'✅':`| Corretta: <span class="rg">${h.right}</span> ❌`}</div>${h.hasAiNote?'<div class="ai-flag">🤖 Questa domanda ha una AI Note — risposta potenzialmente diversa</div>':''}`;
-    l.appendChild(d);
-  });
-}
+function endQuiz(){clearAA();document.getElementById('quizScreen').style.display='none';const es=document.getElementById('endScreen');es.style.display='flex';const p=answered?Math.round(correct/answered*100):0,se=document.getElementById('fScore');se.textContent=p+'%';se.className='fs '+(p>=80?'g':p>=60?'m':'b');document.getElementById('fMsg').textContent=p>=80?'🎉 Eccellente! Sei pronto!':p>=60?'💪 Buon lavoro! Ripassa gli errori.':'📚 Continua a studiare!';document.getElementById('fStats').innerHTML=`<div class="st st-g"><div class="n">${correct}</div><div class="l">Corrette</div></div><div class="st st-r"><div class="n">${wrong}</div><div class="l">Errate</div></div><div class="st st-b"><div class="n">${p}%</div><div class="l">Precisione</div></div><div class="st st-y"><div class="n">${questions.length-answered}</div><div class="l">Non risposte</div></div>`}
+function showReview(){const l=document.getElementById('rvwList');if(l.style.display!=='none'){l.style.display='none';return}l.style.display='flex';l.innerHTML='';hist.forEach(h=>{const d=document.createElement('div');d.className=`rv-it ${h.ok?'rv-g':'rv-r'}`;d.innerHTML=`<div class="rq">Q#${h.qId} — ${h.qShort}</div><div class="rs">📁 ${h.src} · #${h.qId} (pos ${h.origPos}/${h.setTotal})</div><div class="rd">Tua: <span class="${h.ok?'rg':'ry'}">${h.yours}</span> ${h.ok?'✅':`| Corretta: <span class="rg">${h.right}</span> ❌`}</div>${h.hasAiNote?'<div class="ai-flag">🤖 AI Note — risposta potenzialmente diversa</div>':''}`;l.appendChild(d)})}
 function resetWrong(){if(confirm('Cancellare storico errori?')){wrongIds=[];localStorage.removeItem('d360w');document.getElementById('wrongCountStart').textContent='0'}}
-
-document.addEventListener('keydown',e=>{
-  if(document.getElementById('quizScreen').style.display==='none')return;
-  if(autoAdvance&&aaTimer&&(e.key==='Enter'||e.key===' '||e.key==='ArrowRight')){e.preventDefault();clearAA();nextQ();return}
-  const btns=[...document.querySelectorAll('.opt:not(.dis)')];
-  if(btns.length){const ki={'a':0,'b':1,'c':2,'d':3,'1':0,'2':1,'3':2,'4':3},x=ki[e.key.toLowerCase()];if(x!==undefined&&x<btns.length)btns[x].click()}
-  if(!autoAdvance&&(e.key==='Enter'||e.key===' '||e.key==='ArrowRight')&&!document.getElementById('nxtBtn').disabled){e.preventDefault();nextQ()}
-});
+document.addEventListener('keydown',e=>{if(document.getElementById('quizScreen').style.display==='none')return;if(autoAdvance&&aaTimer&&(e.key==='Enter'||e.key===' '||e.key==='ArrowRight')){e.preventDefault();clearAA();nextQ();return}const btns=[...document.querySelectorAll('.opt:not(.dis)')];if(btns.length){const ki={'a':0,'b':1,'c':2,'d':3,'1':0,'2':1,'3':2,'4':3},x=ki[e.key.toLowerCase()];if(x!==undefined&&x<btns.length)btns[x].click()}if(!autoAdvance&&(e.key==='Enter'||e.key===' '||e.key==='ArrowRight')&&!document.getElementById('nxtBtn').disabled){e.preventDefault();nextQ()}});
 init();
 </script>
 </body>
